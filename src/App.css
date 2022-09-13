@@ -1,3 +1,27 @@
 body {
   background-color: #fafafa;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 1.85rem;
+  margin-top: 4rem;
+  transition: all ease-in-out 75ms;
+}
+
+.card:hover {
+  margin-bottom: 4rem;
+  margin-top: 0;
+  transition: all ease-in-out 75ms;
+}
+
+.card-selected {
+  margin-bottom: 4rem;
+  margin-top: 0;
+  transition: all ease-in-out 75ms;
+}

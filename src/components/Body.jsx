@@ -10,7 +10,7 @@ class Body extends Component {
 
     render() {
         return (
-            <Container maxWidth="md" sx={{ mt: 4 }}>
+            <Container maxWidth="lg" sx={{ mt: 4 }}>
                 <Paper sx={{ p: 4 }}>{this.props.children}</Paper>
             </Container>
         )

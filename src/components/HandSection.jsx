@@ -4,13 +4,24 @@ import { StateContext } from './StateProvider'
 
 class HandSection extends Component {
     render() {
-        const { game } = this.context
+        const { game, setRank, rank } = this.context
         return (
             <div>
                 <Typography variant='subtitle1'>Hand:</Typography>
-                {game.players(0).hand().map((card) => (
-                    <div key={`${card.suit()}_${card.rank()}`}>{card.suit()}_{card.rank()}</div>
-                ))}
+                <div style={{
+                    display: 'flex',
+                    overflow: 'scroll'
+                }}>
+                    {game.players(0).hand().map((card) => (
+                        <div
+                            key={`${card.suit()}_${card.rank()}`}
+                            onClick={() => setRank({ rank: card.rank() })}
+                            className={`card ${card.rank() === rank ? 'card-selected' : ''}`}
+                        >
+                            <img alt={`${card.suit()}_${card.rank()}`} src={`/images/${card.suit()}_${card.rank()}.svg`}/>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     }

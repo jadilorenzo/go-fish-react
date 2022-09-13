@@ -1,4 +1,5 @@
 const random = (max, min) => Math.floor(Math.random() * (max - min) + min)
+const rankValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
 class Player {
     constructor(name) {
@@ -18,6 +19,9 @@ class Player {
     take({ cards }) {
         if (cards.length !== 0) {
             this._hand = this._hand.concat(cards)
+            this._hand.sort((card1, card2) => (
+                rankValues.indexOf(card1.rank()) - rankValues.indexOf(card2.rank())
+            ))
         }
         this.reviewForBooks()
     }

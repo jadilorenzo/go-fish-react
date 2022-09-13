@@ -22,7 +22,8 @@ class StateProvider extends Component {
         this.state = {
             page: 'app', // login | game | info
             game: new Game(),
-            userName: ''
+            userName: '',
+            rank: '',
         }
 
     }
@@ -51,13 +52,26 @@ class StateProvider extends Component {
         })
     }
 
+    setPlayer({ index }) {
+        this.setState((prevState) => {
+            prevState.game.playRound({
+                givingPlayerIndex: index,
+                rank: prevState.rank
+            })
+            prevState.rank = ''
+            return prevState
+        })
+    }
+
     render() {
         // console.log(this.state)
         return (
             <StateContext.Provider value={{
                 ...this.state,
-                redirect: ({ page }) => this.redirect({ page }),
-                onLogin: ({ userName, numberOfBots }) => this.onLogin({ userName, numberOfBots })
+                redirect: ({ page }) => this.setState({ page }),
+                setRank: ({rank}) => this.setState({ rank }),
+                setPlayer: ({index}) => this.setPlayer({index}),
+                onLogin: ({ userName, numberOfBots }) => this.onLogin({ userName, numberOfBots }),
             }}>{this.props.children}</StateContext.Provider>
         )
     }
