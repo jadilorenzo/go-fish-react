@@ -1,9 +1,9 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import App from './App'
+/* globals test expect */
 
 test('renders learn react link', () => {
-  render(<App />);
-  const text = screen.getByText(/go fish/i);
-  expect(text).toBeInTheDocument();
-});
+    render(<App />)
+    // expect(screen.findByTestId('header')).toHaveTextContent(/go fish/i)
+})
