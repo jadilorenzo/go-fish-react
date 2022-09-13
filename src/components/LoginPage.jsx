@@ -25,7 +25,7 @@ class LoginPage extends React.Component {
         } else if (this.state.number < 1 || this.state.number > 4) {
             this.setState({ numberError: true })
         } else {
-            this.context.onLogin({ userName: this.state.name })
+            this.context.onLogin({ userName: this.state.name, numberOfBots: this.state.number })
         }
     }
 
