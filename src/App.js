@@ -11,7 +11,7 @@ class App extends Component {
             <StateProvider>
                 <Header/>
                 <Body>
-                    <AppRouter/>
+                    <AppRouter />
                 </Body>
             </StateProvider>
         )

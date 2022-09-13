@@ -25,6 +25,7 @@ class LandingPage extends Component {
                     >Info</Button>
                     <Button
                         variant='contained'
+                        role='start-button'
                         onClick={() => redirect({ page: 'login' })}
                     >Start</Button>
                 </div>

@@ -8,12 +8,12 @@ beforeEach(() => {
     render(<StateProvider><Header/></StateProvider>)
 })
 
-test('renders learn react link', () => {
+test('renders header', () => {
     const text = screen.getByText(/go fish/i)
     expect(text).toBeInTheDocument()
 })
 
-test('renders learn react link', () => {
+test('renders login link', () => {
     const button = screen.getByText(/login/i)
     expect(button).toBeInTheDocument()
 })

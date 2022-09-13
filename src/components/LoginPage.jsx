@@ -25,14 +25,17 @@ class LoginPage extends React.Component {
     render() {
         return (
             <>
-                <Typography variant='h5' sx={{mb: 2}}>Login</Typography>
+                <Typography variant='h5' sx={{ mb: 2 }}>Login</Typography>
                 <FormGroup>
                     <TextField
                         error={this.state.error}
                         label='Name'
-                        type="text"
+                        inputProps={{
+                            role: 'input'
+                        }}
                         id="name"
                         required
+                        helperText={this.state.error ? 'Name required.' : ''}
                         onChange={(e) => this.onChange(e)}
                         value={this.state.name}
                     />
@@ -43,6 +46,7 @@ class LoginPage extends React.Component {
                             variant='outlined'
                             type='submit'
                             style={{ float: 'right' }}
+                            role='button'
                         >
                             Login
                         </Button>
