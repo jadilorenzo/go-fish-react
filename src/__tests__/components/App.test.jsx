@@ -8,9 +8,9 @@ beforeEach(() => {
 })
 
 test('renders header', () => {
-    const header = screen.getAllByText(/go fish/i)
-    expect(header[0]).toBeInTheDocument()
-    expect(header[1]).toBeInTheDocument()
+    const elements = screen.getAllByText(/go fish/i)
+    expect(elements[0]).toBeInTheDocument()
+    expect(elements[1]).toBeInTheDocument()
 })
 
 test('logs in', () => {

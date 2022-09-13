@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InfoPage from './components/InfoPage'
 import LoginPage from './components/LoginPage'
 import LandingPage from './components/LandingPage'
+import GamePage from './components/GamePage'
 import { StateContext } from './components/StateProvider'
 
 class AppRouter extends Component {
@@ -16,7 +17,7 @@ class AppRouter extends Component {
                 ) : (page === 'info') ? (
                     <InfoPage/>
                 ) : (page === 'game') ? (
-                    'game'
+                    <GamePage />
                 ) : null}
             </div>
         )
