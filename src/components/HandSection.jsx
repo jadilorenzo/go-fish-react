@@ -14,12 +14,16 @@ class HandSection extends Component {
                 }}>
                     {game.players(0).hand().map((card, index) => (
                         <div
-                            role={`card-${index}`}
                             key={`${card.suit()}_${card.rank()}`}
                             onClick={() => setRank({ rank: card.rank() })}
                             className={`card ${card.rank() === rank ? 'card-selected' : ''}`}
+                            role={`card-${index}`}
                         >
-                            <img style={{width: '10rem'}} alt={`${card.suit()}_${card.rank()}`} src={`/images/${card.suit()}_${card.rank()}.svg`}/>
+                            <img
+                                aria-label='card-img'
+                                style={{width: '10rem'}}
+                                alt={`${card.suit()}_${card.rank()}`}
+                                src={`/images/${card.suit()}_${card.rank()}.svg`}/>
                         </div>
                     ))}
                 </div>

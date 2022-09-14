@@ -55,8 +55,8 @@ class StateProvider extends Component {
 
     setPlayer({ index }) {
         this.setState((prevState) => {
-            prevState.game.playRound({ givingPlayerIndex: index, rank: prevState.rank, addStat: ({ stat, detail }) => prevState.stats.push({ stat, detail }) })
-            prevState.rank = ''
+            prevState.game.playRound({ givingPlayerIndex: index, rank: this.state.rank, addStat: ({ stat, detail }) => prevState.stats.push({ stat, detail }) })
+
             if (prevState.game.gameOver()) prevState.page = 'end'
             return prevState
         })
@@ -68,6 +68,7 @@ class StateProvider extends Component {
             if (!prevState.game.gameOver() && prevState.game.players(0).hand().length === 0) {
                 this.setPlayer({})
             }
+            prevState.rank = ''
         })
     }
 
