@@ -14,7 +14,7 @@ const login = () => {
     fireEvent.change(input, {
         target: { value: 'User' },
     })
-    const startButton = screen.getByRole('button')
+    const startButton = screen.getByRole('submit-button')
     fireEvent.click(startButton)
 }
 

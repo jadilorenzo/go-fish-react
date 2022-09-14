@@ -26,7 +26,7 @@ test('rejects empty name', () => {
     fireEvent.change(input, {
         target: { value: '' },
     })
-    const startButton = screen.getByRole('button')
+    const startButton = screen.getByRole('submit-button')
     fireEvent.click(startButton)
 
 

@@ -88,6 +88,9 @@ class StateProvider extends Component {
                 primary: {
                     main: blue[500],
                 },
+                background: {
+                    default: this.state.darkMode ? '#121212' : '#f5f5f5'
+                }
             },
         })
 

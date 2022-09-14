@@ -62,7 +62,7 @@ class LoginPage extends React.Component {
                         type='number'
                         helperText={numberError ? 'Invalid number of bots.' : ''}
                         onChange={(e) => this.onNumberChange(e)}
-                        value={number}
+                        value={Number(number)}
                     />
 
                     <Box sx={{ mt: 2 }}>
@@ -71,7 +71,7 @@ class LoginPage extends React.Component {
                             variant='outlined'
                             type='submit'
                             style={{ float: 'right' }}
-                            role='button'
+                            role='submit-button'
                         >
                             Login
                         </Button>
