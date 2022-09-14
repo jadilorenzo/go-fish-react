@@ -32,6 +32,7 @@ class PlayersSection extends Component {
                                 <div style={{flexGrow: 1}}/>
                                 {(rank === '' || index === 0) || (
                                     <Button
+                                        role={`player-${index}`}
                                         variant='contained'
                                         style={{
                                             borderTopLeftRadius: 0,

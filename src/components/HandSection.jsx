@@ -12,8 +12,9 @@ class HandSection extends Component {
                     display: 'flex',
                     overflow: 'scroll'
                 }}>
-                    {game.players(0).hand().map((card) => (
+                    {game.players(0).hand().map((card, index) => (
                         <div
+                            role={`card-${index}`}
                             key={`${card.suit()}_${card.rank()}`}
                             onClick={() => setRank({ rank: card.rank() })}
                             className={`card ${card.rank() === rank ? 'card-selected' : ''}`}
