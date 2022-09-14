@@ -5,6 +5,10 @@ import {
     PlayerModel as Player,
     BotModel as Bot,
 } from '../models'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { blue } from '@mui/material/colors'
+import { CssBaseline } from '@mui/material'
+
 
 export const StateContext = React.createContext()
 
@@ -24,7 +28,8 @@ class StateProvider extends Component {
             game: new Game(),
             userName: '',
             rank: '',
-            stats: []
+            stats: [],
+            darkMode: false
         }
 
     }
@@ -72,7 +77,20 @@ class StateProvider extends Component {
         })
     }
 
+    toggleDarkMode() {
+        this.setState((prevState) => ({...prevState, darkMode: !prevState.darkMode}))
+    }
+
     render() {
+        const theme = createTheme({
+            palette: {
+                mode: this.state.darkMode ? 'dark' : 'light',
+                primary: {
+                    main: blue[500],
+                },
+            },
+        })
+
         return (
             <StateContext.Provider value={{
                 ...this.state,
@@ -80,7 +98,13 @@ class StateProvider extends Component {
                 setRank: ({rank}) => this.setState({ rank }),
                 setPlayer: ({index}) => this.setPlayer({index}),
                 onLogin: ({ userName, numberOfBots }) => this.onLogin({ userName, numberOfBots }),
-            }}>{this.props.children}</StateContext.Provider>
+                toggleDarkMode: () => this.toggleDarkMode()
+            }}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    {this.props.children}
+                </ThemeProvider>
+            </StateContext.Provider>
         )
     }
 }
