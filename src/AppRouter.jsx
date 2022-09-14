@@ -4,6 +4,7 @@ import LoginPage from './components/LoginPage'
 import LandingPage from './components/LandingPage'
 import GamePage from './components/GamePage'
 import { StateContext } from './components/StateProvider'
+import GameOver from './components/GameOver'
 
 class AppRouter extends Component {
     render() {
@@ -18,6 +19,8 @@ class AppRouter extends Component {
                     <InfoPage/>
                 ) : (page === 'game') ? (
                     <GamePage />
+                ) : (page === 'end') ? (
+                    <GameOver />
                 ) : null}
             </div>
         )

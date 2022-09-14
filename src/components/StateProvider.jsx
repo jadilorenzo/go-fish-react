@@ -20,10 +20,11 @@ class StateProvider extends Component {
         super(props)
         this.props = props
         this.state = {
-            page: 'app', // login | game | info
+            page: 'app', // login | game | info | end
             game: new Game(),
             userName: '',
             rank: '',
+            stats: []
         }
 
     }
@@ -54,17 +55,23 @@ class StateProvider extends Component {
 
     setPlayer({ index }) {
         this.setState((prevState) => {
-            prevState.game.playRound({
-                givingPlayerIndex: index,
-                rank: prevState.rank
-            })
+            prevState.game.playRound({ givingPlayerIndex: index, rank: prevState.rank, addStat: ({ stat, detail }) => prevState.stats.push({ stat, detail }) })
             prevState.rank = ''
+            if (prevState.game.gameOver()) prevState.page = 'end'
             return prevState
+        })
+        this._checkIfOutOfCards()
+    }
+
+    _checkIfOutOfCards() {
+        this.setState((prevState) => {
+            if (!prevState.game.gameOver() && prevState.game.players(0).hand().length === 0) {
+                this.setPlayer({})
+            }
         })
     }
 
     render() {
-        // console.log(this.state)
         return (
             <StateContext.Provider value={{
                 ...this.state,

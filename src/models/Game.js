@@ -61,7 +61,7 @@ class Game {
 
     playRound({ givingPlayerIndex, rank, addStat }) {
         this.takeTurn({ givingPlayerIndex, rank, addStat })
-        if (this.currentPlayer().isBot) {
+        if (this.currentPlayer().isBot()) {
             this.playRound({ addStat })
         }
     }

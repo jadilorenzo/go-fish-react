@@ -18,7 +18,7 @@ class HandSection extends Component {
                             onClick={() => setRank({ rank: card.rank() })}
                             className={`card ${card.rank() === rank ? 'card-selected' : ''}`}
                         >
-                            <img alt={`${card.suit()}_${card.rank()}`} src={`/images/${card.suit()}_${card.rank()}.svg`}/>
+                            <img style={{width: '10rem'}} alt={`${card.suit()}_${card.rank()}`} src={`/images/${card.suit()}_${card.rank()}.svg`}/>
                         </div>
                     ))}
                 </div>

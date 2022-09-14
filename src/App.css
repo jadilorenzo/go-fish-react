@@ -9,19 +9,19 @@ body {
 }
 
 .card {
-  width: 1.85rem;
-  margin-top: 4rem;
+  width: 1.25rem;
+  margin-top: 3rem;
   transition: all ease-in-out 75ms;
 }
 
 .card:hover {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   margin-top: 0;
   transition: all ease-in-out 75ms;
 }
 
 .card-selected {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   margin-top: 0;
   transition: all ease-in-out 75ms;
 }

@@ -16,6 +16,10 @@ class Player {
         return this._hand
     }
 
+    isBot() {
+        return false
+    }
+
     take({ cards }) {
         if (cards.length !== 0) {
             this._hand = this._hand.concat(cards)
